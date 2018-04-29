@@ -1,0 +1,38 @@
+/* Técnica 1 float: left/right; */
+
+.float-l { float: left; }
+
+.float-r { float: right; }
+
+.clear, .clear::before, .clear::after { clear: both; }
+
+.clear::before, .clear::after {
+	content: "";
+	display: block;
+}
+
+/* Técnica 2 display: inline-block; */
+
+.i-b { display: inline-block; }
+
+.v-baseline { vertical-align: baseline; }
+
+.v-bottom { vertical-align: bottom; }
+
+.v-middle { vertical-align: middle; }
+
+.v-top { vertical-align: top; }
+
+.font-0 { font-size: 0; }
+
+/* Técnica 3 display: table; */
+
+.table { display: table; }
+
+.table-cell { display: table-cell; }
+
+/* Tecnica 4 display: flex; */
+
+.flex { display: flex; }
+
+.flex-item { flex: none; }

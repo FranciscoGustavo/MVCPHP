@@ -1,0 +1,35 @@
+html {
+	box-sizing: border-box;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+	background-color: #FFF;
+	color: #222;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+}
+
+a {
+	font-weight: bold;
+	color: #424242;
+}	
+
+a:hover { color: #828282; }
+
+h1 { font-size: 2rem;  }
+h2 { font-size: 1.8rem;  }
+h3 { font-size: 1.6rem;  }
+h4 { font-size: 1.4rem;  }
+h5 { font-size: 1.2rem;  }
+h6 { font-size: 1.0rem;  }
+
+li {
+	list-style-type: inherit;
+	list-style-position: inside;
+}

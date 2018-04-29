@@ -1,0 +1,11 @@
+.m-auto {
+	margin: auto;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.center {
+	transform: translateY(100%);
+}
