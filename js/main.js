@@ -1,21 +1,48 @@
-document.querySelector('#btn_login').addEventListener("click", function(ev){
-  ev.preventDefault();
-  var formulario = new ValidatorFrm('#frm_login');
+class InputMD {
+	constructor(selector){
+		this.input = document.querySelectorAll(selector);
+		this.bindEvents();
+	}
 
-  //
-});
-
-class ValidatorFrm {
-  constructor(form) {
-    var frm = document.querySelector(form);
-    frm.setAttribute("action","controllers/login_controller.php?action=login");
-    (this.validaremail(document.querySelector('#inp_email').value)) ? frm.submit() : alert("El correo no es vlido");
-  }
-
-  validaremail(email){
-    var regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    if (regex.test(email)) return true;
-    else return false;
-  }
+	bindEvents(){
+		for (let value of this.input) {
+			value.addEventListener("keyup",()=>{
+			 	if (value.value == "") return value.classList.remove("non-empty");
+				value.classList.add("non-empty");
+			});
+		}
+	}
 }
+
+class openMenu {
+	constructor(selector) {
+		this.menuBoton = document.querySelector(selector);
+		this.bindEvents();
+	}
+
+	bindEvents(){
+		this.menuBoton.addEventListener("click", ()=>{
+			document.querySelector(".nav").classList.toggle("active-menu");
+		});
+	}
+}
+
+class editPorfile {
+	constructor(selector) {
+		this.edit = document.querySelector(selector);
+		this.bindEvents();
+	}
+
+	bindEvents(){
+		this.edit.addEventListener("click", ()=>{
+			alert("Editando perfil");
+		});
+	}
+}
+
+
+(function(){
+	new InputMD(".input-form input");
+	new openMenu(".icon-container");
+	new editPorfile(".edit-porfile");
+})();

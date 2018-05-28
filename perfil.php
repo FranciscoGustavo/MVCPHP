@@ -8,16 +8,15 @@
   <?php
     session_start();
     if (isset($_SESSION['user'])) {
-      if (!isset($_SESSION['productsdata']) || $_SESSION['productsdata'] == null) {
-        header('Location: controllers/main_controller.php?action=load');
+      if (!isset($_SESSION['userdata']) || $_SESSION['userdata'] == null) {
+        header('Location: controllers/main_controller.php?controller=users&action=view&user='.$_SESSION['user']);
       }
       $_POST['validate'] = true;
-      require_once 'views/main/main_page.php';
+      require_once 'views/user_views/user.php';
       $_POST['validate'] = null;
     } else {
-      $_POST['validate'] = true;
-      require_once 'views/user_views/login_view.php';
       $_POST['validate'] = null;
+      header('Location: /PHPMVC');
     }
   ?>
     <script src="js/main.js" ></script>

@@ -13,8 +13,11 @@
     var $connection;
     var $elements;
 
+    function elements_fild(){
+      return $this->elements;
+    }
+
     function startConnection(){
-      self::startConfig('localhost', 'bolsas', 'root', '');
       try {
         $this->connection = new PDO('mysql:host='.$this->SQLMainRute.';dbname='.$this->SQLDataBase, $this->SQLUser, $this->SQLPassword);
       } catch(PDOException $e) {
@@ -32,10 +35,9 @@
     }
 
     function readFieldsToDataBase($Field, $table, $extra){
-      $this->elements = $this->connection->query('SELECT '.$Field.' FROM '.$table.' '.$extra);
-      $this->elements = $this->elements->fetchAll();
-      return $this->elements;
-      //return ($this->elements) ? $this->elements : false;
+      $this->elements = $this->connection->prepare('SELECT '.$Field.' FROM '.$table.' '.$extra);
+      $this->elements->execute();
+      $this->elements = $this->elements->fetch();
     }
 
     function insertFieldsToDataBase($table, $fields, $values){
@@ -67,10 +69,4 @@
     }
 
 }
-
-$db = new ConnectionDB();
-$db->startConnection();
-print_r($db->readFieldsToDataBase("*", 'users', ''));
-
-
 ?>

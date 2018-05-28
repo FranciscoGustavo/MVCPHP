@@ -1,5 +1,7 @@
 <?php
 /**
+Configuracion de la aplicacion en la coneccion a la
+Base de datos Ruta, Nombre_DB, Usuario, Contraseña.
 **/
 class MainConfig
 {
